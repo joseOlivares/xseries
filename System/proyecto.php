@@ -1028,7 +1028,7 @@
             $this->AddCompareHeaderColumns($result);
             $this->AddCompareColumns($result);
             $result->setTableBordered(false);
-            $result->setTableCondensed(false);
+            $result->setTableCondensed(true);
             
             $result->SetHighlightRowAtHover(true);
             $result->SetWidth('');
@@ -1050,6 +1050,8 @@
             $this->setExportListAvailable(array('excel','word','xml','csv','pdf'));
             $this->setExportListRecordAvailable(array());
             $this->setExportOneRecordAvailable(array('excel','word','xml','csv','pdf'));
+            $this->setModalViewSize(Modal::SIZE_SM);
+            $this->setModalFormSize(Modal::SIZE_SM);
     
             return $result;
         }
@@ -1689,7 +1691,7 @@
             $result->SetViewMode(ViewMode::TABLE);
             $result->setEnableRuntimeCustomization(false);
             $result->setTableBordered(false);
-            $result->setTableCondensed(false);
+            $result->setTableCondensed(true);
             
             $this->setupGridColumnGroup($result);
             $this->attachGridEventHandlers($result);
@@ -1740,7 +1742,7 @@
             $this->AddCompareHeaderColumns($result);
             $this->AddCompareColumns($result);
             $result->setTableBordered(false);
-            $result->setTableCondensed(false);
+            $result->setTableCondensed(true);
             
             $result->SetHighlightRowAtHover(true);
             $result->SetWidth('');
@@ -1762,6 +1764,8 @@
             $this->setExportListAvailable(array('excel','word','xml','csv','pdf'));
             $this->setExportListRecordAvailable(array());
             $this->setExportOneRecordAvailable(array('excel','word','xml','csv','pdf'));
+            $this->setModalViewSize(Modal::SIZE_SM);
+            $this->setModalFormSize(Modal::SIZE_SM);
     
             return $result;
         }

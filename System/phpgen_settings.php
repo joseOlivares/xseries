@@ -63,7 +63,7 @@ function GetPageInfos()
 function GetPagesHeader()
 {
     return
-        '<h3 class="txt-header">Xseries Servers Data System</h3>';
+        '<h4 class="txt-header">Xseries Servers Data System</h4>';
 }
 
 function GetPagesFooter()
