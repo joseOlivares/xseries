@@ -1,0 +1,1193 @@
+<Project version="16.9.0.3" localizationFileName="C:\Program Files (x86)\SQL Maestro Group\PHP Generator for MySQL Professional\lang.es.php" phpDriver="1" outputPath="C:\wamp64\www\Xseries_project\xseries\System" copySystemFiles="true" outputFilesExtension="php" colorSchemeName="yeti">
+  <ConnectionOptions host="localhost" port="3306" login="root" password="" database="xseriesdb" client_encoding="utf8">
+    <ssh_secure secure="false" port="22" authentication_mode="0"/>
+    <http_tunnel tunneling="false" url="">
+      <http_proxy_server use_proxy="false" port="8080"/>
+      <http_authentication/>
+    </http_tunnel>
+  </ConnectionOptions>
+  <ScriptConnectionOptions host="localhost" port="3306" login="root" password="" database="xseriesdb" client_encoding="utf8">
+    <ssh_secure secure="false" port="22" authentication_mode="0"/>
+    <http_tunnel tunneling="false" url="">
+      <http_proxy_server use_proxy="false" port="8080"/>
+      <http_authentication/>
+    </http_tunnel>
+  </ScriptConnectionOptions>
+  <DataSources>
+    <DataSource name="clientes"/>
+    <DataSource name="equipos"/>
+    <DataSource name="login"/>
+    <DataSource name="modelo"/>
+    <DataSource name="partes"/>
+    <DataSource name="proyecto"/>
+    <DataSource name="servers"/>
+  </DataSources>
+  <Presentation disableMagicQuotesRuntime="false" showEnvironmentVariables="false" showExecutedQueries="false" showPHPErrorsAndWarnings="false" menuMode="1">
+    <Pages>
+      <Page type="table" tableName="clientes" numberByDataSource="0" fileName="clientes" caption="Clientes" shortCaption="Clientes" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+        <BeforeGridText/>
+        <DetailedDescription/>
+        <ColumnPresentations>
+          <ColumnPresentation fieldName="id_cliente" caption="Id Cliente" showColumnFilter="false" selectedFilterOperators="1573119">
+            <ViewProperties type="text">
+              <Format type="number" thousandSeparator=","/>
+            </ViewProperties>
+            <EditProperties type="textBox" maxLength="0"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="nombre_cliente" caption="Nombre Cliente" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="contacto_cliente" caption="Contacto Cliente" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="telefono_cliente" caption="Telefono Cliente" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text"/>
+            <EditProperties type="textBox" maxLength="10"/>
+          </ColumnPresentation>
+        </ColumnPresentations>
+        <Columns>
+          <List>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="nombre_cliente"/>
+            <Column fieldName="contacto_cliente"/>
+            <Column fieldName="telefono_cliente"/>
+          </List>
+          <View>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="nombre_cliente"/>
+            <Column fieldName="contacto_cliente"/>
+            <Column fieldName="telefono_cliente"/>
+          </View>
+          <Edit>
+            <Column fieldName="id_cliente" visible="false"/>
+            <Column fieldName="nombre_cliente"/>
+            <Column fieldName="contacto_cliente"/>
+            <Column fieldName="telefono_cliente"/>
+          </Edit>
+          <Insert>
+            <Column fieldName="id_cliente" visible="false"/>
+            <Column fieldName="nombre_cliente"/>
+            <Column fieldName="contacto_cliente"/>
+            <Column fieldName="telefono_cliente"/>
+          </Insert>
+          <QuickFilter>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="nombre_cliente"/>
+            <Column fieldName="contacto_cliente"/>
+            <Column fieldName="telefono_cliente"/>
+          </QuickFilter>
+          <FilterBuilder>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="nombre_cliente"/>
+            <Column fieldName="contacto_cliente"/>
+            <Column fieldName="telefono_cliente"/>
+          </FilterBuilder>
+          <Print>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="nombre_cliente"/>
+            <Column fieldName="contacto_cliente"/>
+            <Column fieldName="telefono_cliente"/>
+          </Print>
+          <Export>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="nombre_cliente"/>
+            <Column fieldName="contacto_cliente"/>
+            <Column fieldName="telefono_cliente"/>
+          </Export>
+          <Compare>
+            <Column fieldName="id_cliente" visible="false"/>
+            <Column fieldName="nombre_cliente"/>
+            <Column fieldName="contacto_cliente"/>
+            <Column fieldName="telefono_cliente"/>
+          </Compare>
+        </Columns>
+        <Details>
+          <Detail caption="Servers">
+            <Page type="table" tableName="servers" numberByDataSource="0" fileName="servers" caption="Servers" shortCaption="Servers" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+              <BeforeGridText/>
+              <DetailedDescription/>
+              <ColumnPresentations>
+                <ColumnPresentation fieldName="id_serie" caption="Id Serie" showColumnFilter="false" selectedFilterOperators="1573119">
+                  <ViewProperties type="text">
+                    <Format type="number" thousandSeparator=","/>
+                  </ViewProperties>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_cliente" caption="Id Cliente" selectedFilterOperators="1589247">
+                  <Lookup tableName="clientes" linkFieldName="id_cliente" displayFieldName="nombre_cliente" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_modelo" caption="Id Modelo" selectedFilterOperators="1589247">
+                  <Lookup tableName="modelo" linkFieldName="id_modelo" displayFieldName="tipo_modelo" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_proyecto" caption="Id Proyecto" selectedFilterOperators="1589247">
+                  <Lookup tableName="proyecto" linkFieldName="id_proyecto" displayFieldName="descripcion" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="contrato" caption="Contrato" showColumnFilter="false" selectedFilterOperators="1589247">
+                  <ViewProperties type="text"/>
+                  <EditProperties type="textBox" maxLength="50"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="sitio" caption="Sitio" showColumnFilter="false" selectedFilterOperators="1589247">
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="fotografia_server" caption="Fotografia Server" selectedFilterOperators="1572864">
+                  <ViewProperties type="download"/>
+                  <EditProperties type="fileUpload"/>
+                </ColumnPresentation>
+              </ColumnPresentations>
+              <Columns>
+                <List>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </List>
+                <View>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </View>
+                <Edit>
+                  <Column fieldName="id_serie" visible="false"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Edit>
+                <Insert>
+                  <Column fieldName="id_serie" visible="false"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Insert>
+                <QuickFilter>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </QuickFilter>
+                <FilterBuilder>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </FilterBuilder>
+                <Print>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Print>
+                <Export>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Export>
+                <Compare>
+                  <Column fieldName="id_serie" visible="false"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Compare>
+              </Columns>
+              <Details/>
+              <RecordPermissions useRecordPermissions="false"/>
+              <PartitionNavigators/>
+            </Page>
+            <MasterForeignKeyColumnMap>
+              <FieldMap masterColumnName="id_cliente" foreginColumnName="id_cliente"/>
+            </MasterForeignKeyColumnMap>
+          </Detail>
+        </Details>
+        <RecordPermissions useRecordPermissions="false"/>
+        <PartitionNavigators/>
+      </Page>
+      <Page type="table" tableName="equipos" numberByDataSource="0" fileName="equipos" caption="Equipos" shortCaption="Equipos" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+        <BeforeGridText/>
+        <DetailedDescription/>
+        <ColumnPresentations>
+          <ColumnPresentation fieldName="id_equipo" caption="Id Equipo" showColumnFilter="false" selectedFilterOperators="1573119">
+            <ViewProperties type="text">
+              <Format type="number" thousandSeparator=","/>
+            </ViewProperties>
+            <EditProperties type="textBox" maxLength="0"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="id_partes" caption="Id Partes" selectedFilterOperators="1589247">
+            <Lookup tableName="partes" linkFieldName="id_partes" displayFieldName="fru_partes" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textBox" maxLength="0"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="id_serie" caption="Id Serie" selectedFilterOperators="1573119">
+            <Lookup tableName="servers" linkFieldName="id_serie" displayFieldName="id_cliente" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+            <ViewProperties type="text">
+              <Format type="number" thousandSeparator=","/>
+            </ViewProperties>
+            <EditProperties type="textBox" maxLength="0"/>
+          </ColumnPresentation>
+        </ColumnPresentations>
+        <Columns>
+          <List>
+            <Column fieldName="id_equipo"/>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="id_serie"/>
+          </List>
+          <View>
+            <Column fieldName="id_equipo"/>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="id_serie"/>
+          </View>
+          <Edit>
+            <Column fieldName="id_equipo" visible="false"/>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="id_serie"/>
+          </Edit>
+          <Insert>
+            <Column fieldName="id_equipo" visible="false"/>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="id_serie"/>
+          </Insert>
+          <QuickFilter>
+            <Column fieldName="id_equipo"/>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="id_serie"/>
+          </QuickFilter>
+          <FilterBuilder>
+            <Column fieldName="id_equipo"/>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="id_serie"/>
+          </FilterBuilder>
+          <Print>
+            <Column fieldName="id_equipo"/>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="id_serie"/>
+          </Print>
+          <Export>
+            <Column fieldName="id_equipo"/>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="id_serie"/>
+          </Export>
+          <Compare>
+            <Column fieldName="id_equipo" visible="false"/>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="id_serie"/>
+          </Compare>
+        </Columns>
+        <Details/>
+        <RecordPermissions useRecordPermissions="false"/>
+        <PartitionNavigators/>
+      </Page>
+      <Page type="table" tableName="login" numberByDataSource="0" fileName="login" caption="Login" shortCaption="Login" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+        <BeforeGridText/>
+        <DetailedDescription/>
+        <ColumnPresentations>
+          <ColumnPresentation fieldName="id_usuario" caption="Id Usuario" showColumnFilter="false" selectedFilterOperators="1573119">
+            <ViewProperties type="text">
+              <Format type="number" thousandSeparator=","/>
+            </ViewProperties>
+            <EditProperties type="textBox" maxLength="0"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="nombre" caption="Nombre" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="password" caption="Password" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+          </ColumnPresentation>
+        </ColumnPresentations>
+        <Columns>
+          <List>
+            <Column fieldName="id_usuario"/>
+            <Column fieldName="nombre"/>
+            <Column fieldName="password"/>
+          </List>
+          <View>
+            <Column fieldName="id_usuario"/>
+            <Column fieldName="nombre"/>
+            <Column fieldName="password"/>
+          </View>
+          <Edit>
+            <Column fieldName="id_usuario" visible="false"/>
+            <Column fieldName="nombre"/>
+            <Column fieldName="password"/>
+          </Edit>
+          <Insert>
+            <Column fieldName="id_usuario" visible="false"/>
+            <Column fieldName="nombre"/>
+            <Column fieldName="password"/>
+          </Insert>
+          <QuickFilter>
+            <Column fieldName="id_usuario"/>
+            <Column fieldName="nombre"/>
+            <Column fieldName="password"/>
+          </QuickFilter>
+          <FilterBuilder>
+            <Column fieldName="id_usuario"/>
+            <Column fieldName="nombre"/>
+            <Column fieldName="password"/>
+          </FilterBuilder>
+          <Print>
+            <Column fieldName="id_usuario"/>
+            <Column fieldName="nombre"/>
+            <Column fieldName="password"/>
+          </Print>
+          <Export>
+            <Column fieldName="id_usuario"/>
+            <Column fieldName="nombre"/>
+            <Column fieldName="password"/>
+          </Export>
+          <Compare>
+            <Column fieldName="id_usuario" visible="false"/>
+            <Column fieldName="nombre"/>
+            <Column fieldName="password"/>
+          </Compare>
+        </Columns>
+        <Details/>
+        <RecordPermissions useRecordPermissions="false"/>
+        <PartitionNavigators/>
+      </Page>
+      <Page type="table" tableName="modelo" numberByDataSource="0" fileName="modelo" caption="Modelo Equipo" shortCaption="Modelo" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+        <BeforeGridText/>
+        <DetailedDescription/>
+        <ColumnPresentations>
+          <ColumnPresentation fieldName="id_modelo" caption="Id Modelo" showColumnFilter="false" selectedFilterOperators="1573119">
+            <ViewProperties type="text">
+              <Format type="number" thousandSeparator=","/>
+            </ViewProperties>
+            <EditProperties type="textBox" maxLength="0"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="tipo_modelo" caption="Tipo Modelo" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text"/>
+            <EditProperties type="textBox" maxLength="50"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="nombre_modelo" caption="Nombre Modelo" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text"/>
+            <EditProperties type="textBox" maxLength="50"/>
+          </ColumnPresentation>
+        </ColumnPresentations>
+        <Columns>
+          <List>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="tipo_modelo"/>
+            <Column fieldName="nombre_modelo"/>
+          </List>
+          <View>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="tipo_modelo"/>
+            <Column fieldName="nombre_modelo"/>
+          </View>
+          <Edit>
+            <Column fieldName="id_modelo" visible="false"/>
+            <Column fieldName="tipo_modelo"/>
+            <Column fieldName="nombre_modelo"/>
+          </Edit>
+          <Insert>
+            <Column fieldName="id_modelo" visible="false"/>
+            <Column fieldName="tipo_modelo"/>
+            <Column fieldName="nombre_modelo"/>
+          </Insert>
+          <QuickFilter>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="tipo_modelo"/>
+            <Column fieldName="nombre_modelo"/>
+          </QuickFilter>
+          <FilterBuilder>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="tipo_modelo"/>
+            <Column fieldName="nombre_modelo"/>
+          </FilterBuilder>
+          <Print>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="tipo_modelo"/>
+            <Column fieldName="nombre_modelo"/>
+          </Print>
+          <Export>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="tipo_modelo"/>
+            <Column fieldName="nombre_modelo"/>
+          </Export>
+          <Compare>
+            <Column fieldName="id_modelo" visible="false"/>
+            <Column fieldName="tipo_modelo"/>
+            <Column fieldName="nombre_modelo"/>
+          </Compare>
+        </Columns>
+        <Details>
+          <Detail caption="Servers">
+            <Page type="table" tableName="servers" numberByDataSource="0" fileName="servers" caption="Servers" shortCaption="Servers" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+              <BeforeGridText/>
+              <DetailedDescription/>
+              <ColumnPresentations>
+                <ColumnPresentation fieldName="id_serie" caption="Id Serie" showColumnFilter="false" selectedFilterOperators="1573119">
+                  <ViewProperties type="text">
+                    <Format type="number" thousandSeparator=","/>
+                  </ViewProperties>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_cliente" caption="Id Cliente" selectedFilterOperators="1589247">
+                  <Lookup tableName="clientes" linkFieldName="id_cliente" displayFieldName="nombre_cliente" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_modelo" caption="Id Modelo" selectedFilterOperators="1589247">
+                  <Lookup tableName="modelo" linkFieldName="id_modelo" displayFieldName="tipo_modelo" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_proyecto" caption="Id Proyecto" selectedFilterOperators="1589247">
+                  <Lookup tableName="proyecto" linkFieldName="id_proyecto" displayFieldName="descripcion" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="contrato" caption="Contrato" showColumnFilter="false" selectedFilterOperators="1589247">
+                  <ViewProperties type="text"/>
+                  <EditProperties type="textBox" maxLength="50"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="sitio" caption="Sitio" showColumnFilter="false" selectedFilterOperators="1589247">
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="fotografia_server" caption="Fotografia Server" selectedFilterOperators="1572864">
+                  <ViewProperties type="download"/>
+                  <EditProperties type="fileUpload"/>
+                </ColumnPresentation>
+              </ColumnPresentations>
+              <Columns>
+                <List>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </List>
+                <View>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </View>
+                <Edit>
+                  <Column fieldName="id_serie" visible="false"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Edit>
+                <Insert>
+                  <Column fieldName="id_serie" visible="false"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Insert>
+                <QuickFilter>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </QuickFilter>
+                <FilterBuilder>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </FilterBuilder>
+                <Print>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Print>
+                <Export>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Export>
+                <Compare>
+                  <Column fieldName="id_serie" visible="false"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Compare>
+              </Columns>
+              <Details/>
+              <RecordPermissions useRecordPermissions="false"/>
+              <PartitionNavigators/>
+            </Page>
+            <MasterForeignKeyColumnMap>
+              <FieldMap masterColumnName="id_modelo" foreginColumnName="id_modelo"/>
+            </MasterForeignKeyColumnMap>
+          </Detail>
+        </Details>
+        <RecordPermissions useRecordPermissions="false"/>
+        <PartitionNavigators/>
+      </Page>
+      <Page type="table" tableName="partes" numberByDataSource="0" fileName="partes" caption="Detalle de Partes" shortCaption="Partes" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+        <BeforeGridText/>
+        <DetailedDescription/>
+        <ColumnPresentations>
+          <ColumnPresentation fieldName="id_partes" caption="Id Partes" showColumnFilter="false" selectedFilterOperators="1573119">
+            <ViewProperties type="text">
+              <Format type="number" thousandSeparator=","/>
+            </ViewProperties>
+            <EditProperties type="textBox" maxLength="0"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="fru_partes" caption="Fru Partes" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textBox" maxLength="100"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="sustituto_partes" caption="Sustituto Partes" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textBox" maxLength="100"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="desc_partes" caption="Desc Partes" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="fotografia_parte" caption="Fotografia Parte" selectedFilterOperators="1572864">
+            <ViewProperties type="image" resizeType="fitByHeight" width="0" height="60">
+              <DivAttributes align="center"/>
+            </ViewProperties>
+            <EditProperties type="fileUpload"/>
+          </ColumnPresentation>
+        </ColumnPresentations>
+        <Columns>
+          <List>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="fru_partes"/>
+            <Column fieldName="sustituto_partes"/>
+            <Column fieldName="desc_partes"/>
+            <Column fieldName="fotografia_parte"/>
+          </List>
+          <View>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="fru_partes"/>
+            <Column fieldName="sustituto_partes"/>
+            <Column fieldName="desc_partes"/>
+            <Column fieldName="fotografia_parte"/>
+          </View>
+          <Edit>
+            <Column fieldName="id_partes" visible="false"/>
+            <Column fieldName="fru_partes"/>
+            <Column fieldName="sustituto_partes"/>
+            <Column fieldName="desc_partes"/>
+            <Column fieldName="fotografia_parte"/>
+          </Edit>
+          <Insert>
+            <Column fieldName="id_partes" visible="false"/>
+            <Column fieldName="fru_partes"/>
+            <Column fieldName="sustituto_partes"/>
+            <Column fieldName="desc_partes"/>
+            <Column fieldName="fotografia_parte"/>
+          </Insert>
+          <QuickFilter>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="fru_partes"/>
+            <Column fieldName="sustituto_partes"/>
+            <Column fieldName="desc_partes"/>
+            <Column fieldName="fotografia_parte"/>
+          </QuickFilter>
+          <FilterBuilder>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="fru_partes"/>
+            <Column fieldName="sustituto_partes"/>
+            <Column fieldName="desc_partes"/>
+            <Column fieldName="fotografia_parte"/>
+          </FilterBuilder>
+          <Print>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="fru_partes"/>
+            <Column fieldName="sustituto_partes"/>
+            <Column fieldName="desc_partes"/>
+            <Column fieldName="fotografia_parte"/>
+          </Print>
+          <Export>
+            <Column fieldName="id_partes"/>
+            <Column fieldName="fru_partes"/>
+            <Column fieldName="sustituto_partes"/>
+            <Column fieldName="desc_partes"/>
+            <Column fieldName="fotografia_parte"/>
+          </Export>
+          <Compare>
+            <Column fieldName="id_partes" visible="false"/>
+            <Column fieldName="fru_partes"/>
+            <Column fieldName="sustituto_partes"/>
+            <Column fieldName="desc_partes"/>
+            <Column fieldName="fotografia_parte"/>
+          </Compare>
+        </Columns>
+        <Details>
+          <Detail caption="Equipos">
+            <Page type="table" tableName="equipos" numberByDataSource="0" fileName="equipos" caption="Equipos" shortCaption="Equipos" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+              <BeforeGridText/>
+              <DetailedDescription/>
+              <ColumnPresentations>
+                <ColumnPresentation fieldName="id_equipo" caption="Id Equipo" showColumnFilter="false" selectedFilterOperators="1573119">
+                  <ViewProperties type="text">
+                    <Format type="number" thousandSeparator=","/>
+                  </ViewProperties>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_partes" caption="Id Partes" selectedFilterOperators="1589247">
+                  <Lookup tableName="partes" linkFieldName="id_partes" displayFieldName="fru_partes" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_serie" caption="Id Serie" selectedFilterOperators="1573119">
+                  <Lookup tableName="servers" linkFieldName="id_serie" displayFieldName="id_cliente" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text">
+                    <Format type="number" thousandSeparator=","/>
+                  </ViewProperties>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+              </ColumnPresentations>
+              <Columns>
+                <List>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </List>
+                <View>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </View>
+                <Edit>
+                  <Column fieldName="id_equipo" visible="false"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </Edit>
+                <Insert>
+                  <Column fieldName="id_equipo" visible="false"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </Insert>
+                <QuickFilter>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </QuickFilter>
+                <FilterBuilder>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </FilterBuilder>
+                <Print>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </Print>
+                <Export>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </Export>
+                <Compare>
+                  <Column fieldName="id_equipo" visible="false"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </Compare>
+              </Columns>
+              <Details/>
+              <RecordPermissions useRecordPermissions="false"/>
+              <PartitionNavigators/>
+            </Page>
+            <MasterForeignKeyColumnMap>
+              <FieldMap masterColumnName="id_partes" foreginColumnName="id_partes"/>
+            </MasterForeignKeyColumnMap>
+          </Detail>
+        </Details>
+        <RecordPermissions useRecordPermissions="false"/>
+        <PartitionNavigators/>
+      </Page>
+      <Page type="table" tableName="proyecto" numberByDataSource="0" fileName="proyecto" caption="Proyecto" shortCaption="Proyecto" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+        <BeforeGridText/>
+        <DetailedDescription/>
+        <ColumnPresentations>
+          <ColumnPresentation fieldName="id_proyecto" caption="Id Proyecto" showColumnFilter="false" selectedFilterOperators="1573119">
+            <ViewProperties type="text">
+              <Format type="number" thousandSeparator=","/>
+            </ViewProperties>
+            <EditProperties type="textBox" maxLength="0"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="descripcion" caption="Descripcion" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="attachment" caption="Attachment" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+          </ColumnPresentation>
+        </ColumnPresentations>
+        <Columns>
+          <List>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="descripcion"/>
+            <Column fieldName="attachment"/>
+          </List>
+          <View>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="descripcion"/>
+            <Column fieldName="attachment"/>
+          </View>
+          <Edit>
+            <Column fieldName="id_proyecto" visible="false"/>
+            <Column fieldName="descripcion"/>
+            <Column fieldName="attachment"/>
+          </Edit>
+          <Insert>
+            <Column fieldName="id_proyecto" visible="false"/>
+            <Column fieldName="descripcion"/>
+            <Column fieldName="attachment"/>
+          </Insert>
+          <QuickFilter>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="descripcion"/>
+            <Column fieldName="attachment"/>
+          </QuickFilter>
+          <FilterBuilder>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="descripcion"/>
+            <Column fieldName="attachment"/>
+          </FilterBuilder>
+          <Print>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="descripcion"/>
+            <Column fieldName="attachment"/>
+          </Print>
+          <Export>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="descripcion"/>
+            <Column fieldName="attachment"/>
+          </Export>
+          <Compare>
+            <Column fieldName="id_proyecto" visible="false"/>
+            <Column fieldName="descripcion"/>
+            <Column fieldName="attachment"/>
+          </Compare>
+        </Columns>
+        <Details>
+          <Detail caption="Servers">
+            <Page type="table" tableName="servers" numberByDataSource="0" fileName="servers" caption="Servers" shortCaption="Servers" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+              <BeforeGridText/>
+              <DetailedDescription/>
+              <ColumnPresentations>
+                <ColumnPresentation fieldName="id_serie" caption="Id Serie" showColumnFilter="false" selectedFilterOperators="1573119">
+                  <ViewProperties type="text">
+                    <Format type="number" thousandSeparator=","/>
+                  </ViewProperties>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_cliente" caption="Id Cliente" selectedFilterOperators="1589247">
+                  <Lookup tableName="clientes" linkFieldName="id_cliente" displayFieldName="nombre_cliente" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_modelo" caption="Id Modelo" selectedFilterOperators="1589247">
+                  <Lookup tableName="modelo" linkFieldName="id_modelo" displayFieldName="tipo_modelo" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_proyecto" caption="Id Proyecto" selectedFilterOperators="1589247">
+                  <Lookup tableName="proyecto" linkFieldName="id_proyecto" displayFieldName="descripcion" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="contrato" caption="Contrato" showColumnFilter="false" selectedFilterOperators="1589247">
+                  <ViewProperties type="text"/>
+                  <EditProperties type="textBox" maxLength="50"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="sitio" caption="Sitio" showColumnFilter="false" selectedFilterOperators="1589247">
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="fotografia_server" caption="Fotografia Server" selectedFilterOperators="1572864">
+                  <ViewProperties type="download"/>
+                  <EditProperties type="fileUpload"/>
+                </ColumnPresentation>
+              </ColumnPresentations>
+              <Columns>
+                <List>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </List>
+                <View>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </View>
+                <Edit>
+                  <Column fieldName="id_serie" visible="false"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Edit>
+                <Insert>
+                  <Column fieldName="id_serie" visible="false"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Insert>
+                <QuickFilter>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </QuickFilter>
+                <FilterBuilder>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </FilterBuilder>
+                <Print>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Print>
+                <Export>
+                  <Column fieldName="id_serie"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Export>
+                <Compare>
+                  <Column fieldName="id_serie" visible="false"/>
+                  <Column fieldName="id_cliente"/>
+                  <Column fieldName="id_modelo"/>
+                  <Column fieldName="id_proyecto"/>
+                  <Column fieldName="contrato"/>
+                  <Column fieldName="sitio"/>
+                  <Column fieldName="fotografia_server"/>
+                </Compare>
+              </Columns>
+              <Details/>
+              <RecordPermissions useRecordPermissions="false"/>
+              <PartitionNavigators/>
+            </Page>
+            <MasterForeignKeyColumnMap>
+              <FieldMap masterColumnName="id_proyecto" foreginColumnName="id_proyecto"/>
+            </MasterForeignKeyColumnMap>
+          </Detail>
+        </Details>
+        <RecordPermissions useRecordPermissions="false"/>
+        <PartitionNavigators/>
+      </Page>
+      <Page type="table" tableName="servers" numberByDataSource="0" fileName="servers" caption="Servers" shortCaption="Servers" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+        <BeforeGridText/>
+        <DetailedDescription/>
+        <ColumnPresentations>
+          <ColumnPresentation fieldName="id_serie" caption="Id Serie" showColumnFilter="false" selectedFilterOperators="1573119">
+            <ViewProperties type="text">
+              <Format type="number" thousandSeparator=","/>
+            </ViewProperties>
+            <EditProperties type="textBox" maxLength="0"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="id_cliente" caption="Id Cliente" selectedFilterOperators="1589247">
+            <Lookup tableName="clientes" linkFieldName="id_cliente" displayFieldName="nombre_cliente" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="comboBox"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="id_modelo" caption="Id Modelo" selectedFilterOperators="1589247">
+            <Lookup tableName="modelo" linkFieldName="id_modelo" displayFieldName="tipo_modelo" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+            <ViewProperties type="text"/>
+            <EditProperties type="comboBox"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="id_proyecto" caption="Id Proyecto" selectedFilterOperators="1589247">
+            <Lookup tableName="proyecto" linkFieldName="id_proyecto" displayFieldName="descripcion" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="comboBox"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="contrato" caption="Contrato" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text"/>
+            <EditProperties type="textBox" maxLength="50"/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="sitio" caption="Sitio" showColumnFilter="false" selectedFilterOperators="1589247">
+            <ViewProperties type="text" maxLength="75"/>
+            <EditProperties type="textArea" columnCount="50" rowCount="8" placeholder=""/>
+          </ColumnPresentation>
+          <ColumnPresentation fieldName="fotografia_server" caption="Fotografia Server" selectedFilterOperators="1572864">
+            <ViewProperties type="image" width="0" height="0"/>
+            <EditProperties type="fileUpload"/>
+          </ColumnPresentation>
+        </ColumnPresentations>
+        <Columns>
+          <List>
+            <Column fieldName="id_serie"/>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="contrato"/>
+            <Column fieldName="sitio"/>
+            <Column fieldName="fotografia_server"/>
+          </List>
+          <View>
+            <Column fieldName="id_serie"/>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="contrato"/>
+            <Column fieldName="sitio"/>
+            <Column fieldName="fotografia_server"/>
+          </View>
+          <Edit>
+            <Column fieldName="id_serie" visible="false"/>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="contrato"/>
+            <Column fieldName="sitio"/>
+            <Column fieldName="fotografia_server"/>
+          </Edit>
+          <Insert>
+            <Column fieldName="id_serie" visible="false"/>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="contrato"/>
+            <Column fieldName="sitio"/>
+            <Column fieldName="fotografia_server"/>
+          </Insert>
+          <QuickFilter>
+            <Column fieldName="id_serie"/>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="contrato"/>
+            <Column fieldName="sitio"/>
+            <Column fieldName="fotografia_server"/>
+          </QuickFilter>
+          <FilterBuilder>
+            <Column fieldName="id_serie"/>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="contrato"/>
+            <Column fieldName="sitio"/>
+            <Column fieldName="fotografia_server"/>
+          </FilterBuilder>
+          <Print>
+            <Column fieldName="id_serie"/>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="contrato"/>
+            <Column fieldName="sitio"/>
+            <Column fieldName="fotografia_server"/>
+          </Print>
+          <Export>
+            <Column fieldName="id_serie"/>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="contrato"/>
+            <Column fieldName="sitio"/>
+            <Column fieldName="fotografia_server"/>
+          </Export>
+          <Compare>
+            <Column fieldName="id_serie" visible="false"/>
+            <Column fieldName="id_cliente"/>
+            <Column fieldName="id_modelo"/>
+            <Column fieldName="id_proyecto"/>
+            <Column fieldName="contrato"/>
+            <Column fieldName="sitio"/>
+            <Column fieldName="fotografia_server"/>
+          </Compare>
+        </Columns>
+        <Details>
+          <Detail caption="Equipos">
+            <Page type="table" tableName="equipos" numberByDataSource="0" fileName="equipos" caption="Equipos" shortCaption="Equipos" addSeparator="false" horizontalFilterCondition="" openAdvancedSearchAtFirst="false" recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false">
+              <BeforeGridText/>
+              <DetailedDescription/>
+              <ColumnPresentations>
+                <ColumnPresentation fieldName="id_equipo" caption="Id Equipo" showColumnFilter="false" selectedFilterOperators="1573119">
+                  <ViewProperties type="text">
+                    <Format type="number" thousandSeparator=","/>
+                  </ViewProperties>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_partes" caption="Id Partes" selectedFilterOperators="1589247">
+                  <Lookup tableName="partes" linkFieldName="id_partes" displayFieldName="fru_partes" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text" maxLength="75"/>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+                <ColumnPresentation fieldName="id_serie" caption="Id Serie" selectedFilterOperators="1573119">
+                  <Lookup tableName="servers" linkFieldName="id_serie" displayFieldName="id_cliente" lookupFilter="" useLookupOrdering="true" lookupOrdering="0"/>
+                  <ViewProperties type="text">
+                    <Format type="number" thousandSeparator=","/>
+                  </ViewProperties>
+                  <EditProperties type="textBox" maxLength="0"/>
+                </ColumnPresentation>
+              </ColumnPresentations>
+              <Columns>
+                <List>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </List>
+                <View>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </View>
+                <Edit>
+                  <Column fieldName="id_equipo" visible="false"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </Edit>
+                <Insert>
+                  <Column fieldName="id_equipo" visible="false"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </Insert>
+                <QuickFilter>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </QuickFilter>
+                <FilterBuilder>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </FilterBuilder>
+                <Print>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </Print>
+                <Export>
+                  <Column fieldName="id_equipo"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </Export>
+                <Compare>
+                  <Column fieldName="id_equipo" visible="false"/>
+                  <Column fieldName="id_partes"/>
+                  <Column fieldName="id_serie"/>
+                </Compare>
+              </Columns>
+              <Details/>
+              <RecordPermissions useRecordPermissions="false"/>
+              <PartitionNavigators/>
+            </Page>
+            <MasterForeignKeyColumnMap>
+              <FieldMap masterColumnName="id_serie" foreginColumnName="id_serie"/>
+            </MasterForeignKeyColumnMap>
+          </Detail>
+        </Details>
+        <RecordPermissions useRecordPermissions="false"/>
+        <PartitionNavigators/>
+      </Page>
+    </Pages>
+    <UserAuthorization/>
+    <UserGrants enableGuestAccess="false">
+      <UserPageGrants/>
+    </UserGrants>
+    <Header>
+&lt;h3 class=&quot;txt-header&quot;&gt;Xseries Servers Data System&lt;/h3&gt;    </Header>
+    <Footer>
+&lt;div class=&quot;txt-centro&quot;&gt;Xseries Team 2017&lt;/div&gt;    </Footer>
+    <PHPOptions/>
+  </Presentation>
+  <UserCSS>
+.txt-header{
+  color: white;
+}
+
+.txt-centro{
+  text-align: center;
+}  </UserCSS>
+  <UserJS/>
+  <ExcludedPaths/>
+  <DefaultPageProperties recordsPerPage="25" NavigatorPosition="3" insertAbilityMode="1" deleteAbilityMode="3" deleteSelectedAbilityMode="3" contentEncoding="UTF-8" exportToExcelAvailable2="5" exportToWordAvailable2="5" exportToXmlAvailable2="5" exportToCsvAvailable2="5" exportToPdfAvailable2="5" printerFriendlyAvailable2="5" highlightRowOnMouseHover="true" useActionImages="true" showKeyColumnsImagesInGridHeader="false"/>
+  <DefaultDataFormats numberAfterDecimal="4" DecimalSeparator="." ThousandSeparator="," DateTimeFormat="Y-m-d H:i:s" DateFormat="Y-m-d" firstDayOfWeek="0"/>
+</Project>
