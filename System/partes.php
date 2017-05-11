@@ -1105,9 +1105,10 @@
             // View column for fotografia_parte field
             //
             $column = new BlobImageViewColumn('fotografia_parte', 'fotografia_parte', 'Fotografia Parte', $this->dataset, true, 'partesGrid_fotografia_parte_handler_list');
+            $column->SetImageHintTemplate('%fotografia_parte%');
             $column->setAlign('center');
             $column->setMinimalVisibility(ColumnVisibility::PHONE);
-            $column->SetDescription($this->RenderText(''));
+            $column->SetDescription($this->RenderText('%fru_partes%'));
             $column->SetFixedWidth(null);
             $grid->AddViewColumn($column);
         }
@@ -1155,6 +1156,7 @@
             // View column for fotografia_parte field
             //
             $column = new BlobImageViewColumn('fotografia_parte', 'fotografia_parte', 'Fotografia Parte', $this->dataset, true, 'partesGrid_fotografia_parte_handler_view');
+            $column->SetImageHintTemplate('%fotografia_parte%');
             $grid->AddSingleRecordViewColumn($column);
         }
     
@@ -1294,6 +1296,7 @@
             // View column for fotografia_parte field
             //
             $column = new BlobImageViewColumn('fotografia_parte', 'fotografia_parte', 'Fotografia Parte', $this->dataset, true, 'partesGrid_fotografia_parte_handler_print');
+            $column->SetImageHintTemplate('%fotografia_parte%');
             $column->setAlign('center');
             $grid->AddPrintColumn($column);
         }
@@ -1341,6 +1344,7 @@
             // View column for fotografia_parte field
             //
             $column = new BlobImageViewColumn('fotografia_parte', 'fotografia_parte', 'Fotografia Parte', $this->dataset, true, 'partesGrid_fotografia_parte_handler_export');
+            $column->SetImageHintTemplate('%fotografia_parte%');
             $column->setAlign('center');
             $grid->AddExportColumn($column);
         }
@@ -1378,6 +1382,7 @@
             // View column for fotografia_parte field
             //
             $column = new BlobImageViewColumn('fotografia_parte', 'fotografia_parte', 'Fotografia Parte', $this->dataset, true, 'partesGrid_fotografia_parte_handler_compare');
+            $column->SetImageHintTemplate('%fotografia_parte%');
             $column->setAlign('center');
             $grid->AddCompareColumn($column);
         }
