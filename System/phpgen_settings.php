@@ -56,14 +56,14 @@ function GetPageInfos()
     $result[] = array('caption' => 'Modelo', 'short_caption' => 'Modelo Equipo', 'filename' => 'modelo.php', 'name' => 'modelo', 'group_name' => 'Default', 'add_separator' => false, 'description' => '');
     $result[] = array('caption' => 'Partes', 'short_caption' => 'Detalle de Partes', 'filename' => 'partes.php', 'name' => 'partes', 'group_name' => 'Default', 'add_separator' => false, 'description' => '');
     $result[] = array('caption' => 'Proyecto', 'short_caption' => 'Proyecto', 'filename' => 'proyecto.php', 'name' => 'proyecto', 'group_name' => 'Default', 'add_separator' => false, 'description' => '');
-    $result[] = array('caption' => 'Servers', 'short_caption' => 'Servers', 'filename' => 'servers.php', 'name' => 'servers', 'group_name' => 'Default', 'add_separator' => false, 'description' => '');
+    $result[] = array('caption' => 'Server', 'short_caption' => 'Server', 'filename' => 'server.php', 'name' => 'server', 'group_name' => 'Default', 'add_separator' => false, 'description' => '');
     return $result;
 }
 
 function GetPagesHeader()
 {
     return
-        '<h4 class="txt-header">Xseries Servers Data System</h4>';
+        '<h3 class="txt-header">Xseries Servers Data System</h3>';
 }
 
 function GetPagesFooter()

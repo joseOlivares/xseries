@@ -171,7 +171,7 @@
         {
             $actions = $grid->getActions();
             $actions->setCaption($this->GetLocalizerCaptions()->GetMessageString('Actions'));
-            $actions->setPosition(ActionList::POSITION_LEFT);
+            $actions->setPosition(ActionList::POSITION_RIGHT);
             
             if ($this->GetSecurityInfo()->HasViewGrant())
             {
@@ -472,11 +472,11 @@
             $this->AddCompareHeaderColumns($result);
             $this->AddCompareColumns($result);
             $result->setTableBordered(false);
-            $result->setTableCondensed(true);
+            $result->setTableCondensed(false);
             
             $result->SetHighlightRowAtHover(true);
             $result->SetWidth('');
-            $this->AddOperationsColumns($result);
+    
             $this->AddFieldColumns($result);
             $this->AddSingleRecordViewColumns($result);
             $this->AddEditColumns($result);
@@ -484,7 +484,7 @@
             $this->AddPrintColumns($result);
             $this->AddExportColumns($result);
     
-    
+            $this->AddOperationsColumns($result);
             $this->SetShowPageList(true);
             $this->SetShowTopPageNavigator(true);
             $this->SetShowBottomPageNavigator(true);
@@ -494,8 +494,6 @@
             $this->setExportListAvailable(array('excel','word','xml','csv','pdf'));
             $this->setExportListRecordAvailable(array());
             $this->setExportOneRecordAvailable(array('excel','word','xml','csv','pdf'));
-            $this->setModalViewSize(Modal::SIZE_SM);
-            $this->setModalFormSize(Modal::SIZE_SM);
     
             return $result;
         }

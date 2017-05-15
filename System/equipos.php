@@ -46,11 +46,11 @@
             $field = new IntegerField('id_partes');
             $field->SetIsNotNull(true);
             $this->dataset->AddField($field, false);
-            $field = new IntegerField('id_serie');
+            $field = new IntegerField('id_server');
             $field->SetIsNotNull(true);
             $this->dataset->AddField($field, false);
             $this->dataset->AddLookupField('id_partes', 'partes', new IntegerField('id_partes', null, null, true), new StringField('fru_partes', 'id_partes_fru_partes', 'id_partes_fru_partes_partes'), 'id_partes_fru_partes_partes');
-            $this->dataset->AddLookupField('id_serie', 'servers', new IntegerField('id_serie', null, null, true), new IntegerField('id_cliente', 'id_serie_id_cliente', 'id_serie_id_cliente_servers'), 'id_serie_id_cliente_servers');
+            $this->dataset->AddLookupField('id_server', '`server`', new IntegerField('id_server', null, null, true), new StringField('serie', 'id_server_serie', 'id_server_serie_server'), 'id_server_serie_server');
         }
     
         protected function DoPrepare() {
@@ -83,7 +83,7 @@
             return array(
                 new FilterColumn($this->dataset, 'id_equipo', 'id_equipo', $this->RenderText('Id Equipo')),
                 new FilterColumn($this->dataset, 'id_partes', 'id_partes_fru_partes', $this->RenderText('Id Partes')),
-                new FilterColumn($this->dataset, 'id_serie', 'id_serie_id_cliente', $this->RenderText('Id Serie'))
+                new FilterColumn($this->dataset, 'id_server', 'id_server_serie', $this->RenderText('Id Server'))
             );
         }
     
@@ -92,14 +92,14 @@
             $quickFilter
                 ->addColumn($columns['id_equipo'])
                 ->addColumn($columns['id_partes'])
-                ->addColumn($columns['id_serie']);
+                ->addColumn($columns['id_server']);
         }
     
         protected function setupColumnFilter(ColumnFilter $columnFilter)
         {
             $columnFilter
                 ->setOptionsFor('id_partes')
-                ->setOptionsFor('id_serie');
+                ->setOptionsFor('id_server');
         }
     
         protected function setupFilterBuilder(FilterBuilder $filterBuilder, FixedKeysArray $columns)
@@ -181,15 +181,18 @@
                 )
             );
             
-            $main_editor = new ComboBox('id_serie_edit', $this->GetLocalizerCaptions()->GetMessageString('PleaseSelect'));
+            $main_editor = new ComboBox('id_server_edit', $this->GetLocalizerCaptions()->GetMessageString('PleaseSelect'));
             $main_editor->SetAllowNullValue(false);
             $lookupDataset = new TableDataset(
                 MySqlIConnectionFactory::getInstance(),
                 GetConnectionOptions(),
-                '`servers`');
-            $field = new IntegerField('id_serie', null, null, true);
+                '`server`');
+            $field = new IntegerField('id_server', null, null, true);
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, true);
+            $field = new StringField('serie');
+            $field->SetIsNotNull(true);
+            $lookupDataset->AddField($field, false);
             $field = new IntegerField('id_cliente');
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
@@ -200,28 +203,28 @@
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
             $field = new StringField('contrato');
-            $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
             $field = new StringField('sitio');
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
             $field = new BlobField('fotografia_server');
-            $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
-            $lookupDataset->setOrderByField('id_cliente', GetOrderTypeAsSQL(otAscending));
+            $lookupDataset->setOrderByField('serie', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'Id Serie', 
-                'id_serie', 
+                'Id Server', 
+                'id_server', 
                 $main_editor, 
-                $this->dataset, 'id_serie', 'id_cliente', $lookupDataset);
+                $this->dataset, 'id_server', 'serie', $lookupDataset);
             
             $editColumn->PrepareEditorControl();
             
-            $multi_value_select_editor = new MultiValueSelect('id_serie');
+            $multi_value_select_editor = new MultiValueSelect('id_server');
             $multi_value_select_editor->setChoices($main_editor->getChoices());
             
+            $text_editor = new TextEdit('id_server');
+            
             $filterBuilder->addColumn(
-                $columns['id_serie'],
+                $columns['id_server'],
                 array(
                     FilterConditionOperator::EQUALS => $main_editor,
                     FilterConditionOperator::DOES_NOT_EQUAL => $main_editor,
@@ -231,6 +234,12 @@
                     FilterConditionOperator::IS_LESS_THAN_OR_EQUAL_TO => $main_editor,
                     FilterConditionOperator::IS_BETWEEN => $main_editor,
                     FilterConditionOperator::IS_NOT_BETWEEN => $main_editor,
+                    FilterConditionOperator::CONTAINS => $text_editor,
+                    FilterConditionOperator::DOES_NOT_CONTAIN => $text_editor,
+                    FilterConditionOperator::BEGINS_WITH => $text_editor,
+                    FilterConditionOperator::ENDS_WITH => $text_editor,
+                    FilterConditionOperator::IS_LIKE => $text_editor,
+                    FilterConditionOperator::IS_NOT_LIKE => $text_editor,
                     FilterConditionOperator::IN => $multi_value_select_editor,
                     FilterConditionOperator::NOT_IN => $multi_value_select_editor,
                     FilterConditionOperator::IS_BLANK => null,
@@ -243,7 +252,7 @@
         {
             $actions = $grid->getActions();
             $actions->setCaption($this->GetLocalizerCaptions()->GetMessageString('Actions'));
-            $actions->setPosition(ActionList::POSITION_LEFT);
+            $actions->setPosition(ActionList::POSITION_RIGHT);
             
             if ($this->GetSecurityInfo()->HasViewGrant())
             {
@@ -306,13 +315,10 @@
             $grid->AddViewColumn($column);
             
             //
-            // View column for id_cliente field
+            // View column for serie field
             //
-            $column = new NumberViewColumn('id_serie', 'id_serie_id_cliente', 'Id Serie', $this->dataset);
+            $column = new TextViewColumn('id_server', 'id_server_serie', 'Id Server', $this->dataset);
             $column->SetOrderable(true);
-            $column->setNumberAfterDecimal(0);
-            $column->setThousandsSeparator(',');
-            $column->setDecimalSeparator('');
             $column->setMinimalVisibility(ColumnVisibility::PHONE);
             $column->SetDescription($this->RenderText(''));
             $column->SetFixedWidth(null);
@@ -341,13 +347,10 @@
             $grid->AddSingleRecordViewColumn($column);
             
             //
-            // View column for id_cliente field
+            // View column for serie field
             //
-            $column = new NumberViewColumn('id_serie', 'id_serie_id_cliente', 'Id Serie', $this->dataset);
+            $column = new TextViewColumn('id_server', 'id_server_serie', 'Id Server', $this->dataset);
             $column->SetOrderable(true);
-            $column->setNumberAfterDecimal(0);
-            $column->setThousandsSeparator(',');
-            $column->setDecimalSeparator('');
             $grid->AddSingleRecordViewColumn($column);
         }
     
@@ -388,16 +391,19 @@
             $grid->AddEditColumn($editColumn);
             
             //
-            // Edit column for id_serie field
+            // Edit column for id_server field
             //
-            $editor = new ComboBox('id_serie_edit', $this->GetLocalizerCaptions()->GetMessageString('PleaseSelect'));
+            $editor = new ComboBox('id_server_edit', $this->GetLocalizerCaptions()->GetMessageString('PleaseSelect'));
             $lookupDataset = new TableDataset(
                 MySqlIConnectionFactory::getInstance(),
                 GetConnectionOptions(),
-                '`servers`');
-            $field = new IntegerField('id_serie', null, null, true);
+                '`server`');
+            $field = new IntegerField('id_server', null, null, true);
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, true);
+            $field = new StringField('serie');
+            $field->SetIsNotNull(true);
+            $lookupDataset->AddField($field, false);
             $field = new IntegerField('id_cliente');
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
@@ -408,20 +414,18 @@
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
             $field = new StringField('contrato');
-            $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
             $field = new StringField('sitio');
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
             $field = new BlobField('fotografia_server');
-            $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
-            $lookupDataset->setOrderByField('id_cliente', GetOrderTypeAsSQL(otAscending));
+            $lookupDataset->setOrderByField('serie', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'Id Serie', 
-                'id_serie', 
+                'Id Server', 
+                'id_server', 
                 $editor, 
-                $this->dataset, 'id_serie', 'id_cliente', $lookupDataset);
+                $this->dataset, 'id_server', 'serie', $lookupDataset);
             $validator = new RequiredValidator(StringUtils::Format($this->GetLocalizerCaptions()->GetMessageString('RequiredValidationMessage'), $this->RenderText($editColumn->GetCaption())));
             $editor->GetValidatorCollection()->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -465,16 +469,19 @@
             $grid->AddInsertColumn($editColumn);
             
             //
-            // Edit column for id_serie field
+            // Edit column for id_server field
             //
-            $editor = new ComboBox('id_serie_edit', $this->GetLocalizerCaptions()->GetMessageString('PleaseSelect'));
+            $editor = new ComboBox('id_server_edit', $this->GetLocalizerCaptions()->GetMessageString('PleaseSelect'));
             $lookupDataset = new TableDataset(
                 MySqlIConnectionFactory::getInstance(),
                 GetConnectionOptions(),
-                '`servers`');
-            $field = new IntegerField('id_serie', null, null, true);
+                '`server`');
+            $field = new IntegerField('id_server', null, null, true);
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, true);
+            $field = new StringField('serie');
+            $field->SetIsNotNull(true);
+            $lookupDataset->AddField($field, false);
             $field = new IntegerField('id_cliente');
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
@@ -485,20 +492,18 @@
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
             $field = new StringField('contrato');
-            $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
             $field = new StringField('sitio');
             $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
             $field = new BlobField('fotografia_server');
-            $field->SetIsNotNull(true);
             $lookupDataset->AddField($field, false);
-            $lookupDataset->setOrderByField('id_cliente', GetOrderTypeAsSQL(otAscending));
+            $lookupDataset->setOrderByField('serie', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'Id Serie', 
-                'id_serie', 
+                'Id Server', 
+                'id_server', 
                 $editor, 
-                $this->dataset, 'id_serie', 'id_cliente', $lookupDataset);
+                $this->dataset, 'id_server', 'serie', $lookupDataset);
             $validator = new RequiredValidator(StringUtils::Format($this->GetLocalizerCaptions()->GetMessageString('RequiredValidationMessage'), $this->RenderText($editColumn->GetCaption())));
             $editor->GetValidatorCollection()->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -528,13 +533,10 @@
             $grid->AddPrintColumn($column);
             
             //
-            // View column for id_cliente field
+            // View column for serie field
             //
-            $column = new NumberViewColumn('id_serie', 'id_serie_id_cliente', 'Id Serie', $this->dataset);
+            $column = new TextViewColumn('id_server', 'id_server_serie', 'Id Server', $this->dataset);
             $column->SetOrderable(true);
-            $column->setNumberAfterDecimal(0);
-            $column->setThousandsSeparator(',');
-            $column->setDecimalSeparator('');
             $grid->AddPrintColumn($column);
         }
     
@@ -560,13 +562,10 @@
             $grid->AddExportColumn($column);
             
             //
-            // View column for id_cliente field
+            // View column for serie field
             //
-            $column = new NumberViewColumn('id_serie', 'id_serie_id_cliente', 'Id Serie', $this->dataset);
+            $column = new TextViewColumn('id_server', 'id_server_serie', 'Id Server', $this->dataset);
             $column->SetOrderable(true);
-            $column->setNumberAfterDecimal(0);
-            $column->setThousandsSeparator(',');
-            $column->setDecimalSeparator('');
             $grid->AddExportColumn($column);
         }
     
@@ -582,13 +581,10 @@
             $grid->AddCompareColumn($column);
             
             //
-            // View column for id_cliente field
+            // View column for serie field
             //
-            $column = new NumberViewColumn('id_serie', 'id_serie_id_cliente', 'Id Serie', $this->dataset);
+            $column = new TextViewColumn('id_server', 'id_server_serie', 'Id Server', $this->dataset);
             $column->SetOrderable(true);
-            $column->setNumberAfterDecimal(0);
-            $column->setThousandsSeparator(',');
-            $column->setDecimalSeparator('');
             $grid->AddCompareColumn($column);
         }
     
@@ -657,11 +653,11 @@
             $this->AddCompareHeaderColumns($result);
             $this->AddCompareColumns($result);
             $result->setTableBordered(false);
-            $result->setTableCondensed(true);
+            $result->setTableCondensed(false);
             
             $result->SetHighlightRowAtHover(true);
             $result->SetWidth('');
-            $this->AddOperationsColumns($result);
+    
             $this->AddFieldColumns($result);
             $this->AddSingleRecordViewColumns($result);
             $this->AddEditColumns($result);
@@ -669,7 +665,7 @@
             $this->AddPrintColumns($result);
             $this->AddExportColumns($result);
     
-    
+            $this->AddOperationsColumns($result);
             $this->SetShowPageList(true);
             $this->SetShowTopPageNavigator(true);
             $this->SetShowBottomPageNavigator(true);
@@ -679,8 +675,6 @@
             $this->setExportListAvailable(array('excel','word','xml','csv','pdf'));
             $this->setExportListRecordAvailable(array());
             $this->setExportOneRecordAvailable(array('excel','word','xml','csv','pdf'));
-            $this->setModalViewSize(Modal::SIZE_SM);
-            $this->setModalFormSize(Modal::SIZE_SM);
     
             return $result;
         }
